@@ -1,0 +1,26 @@
+--Create a shoe store database
+
+CREATE TABLE shoes (id INTEGER PRIMARY KEY, name TEXT, color TEXT, size INTEGER, price INTEGER);
+
+INSERT INTO shoes VALUES (1, "high heel", "red", 5, 10);
+INSERT INTO shoes VALUES (2, "sneaker", "blue", 7, 15);
+INSERT INTO shoes VALUES (3, "ballet", "yellow", 5, 15);
+INSERT INTO shoes VALUES (4, "jazz", "yellow", 6, 10);
+INSERT INTO shoes VALUES (5, "swim", "orange", 7, 10);
+INSERT INTO shoes VALUES (6, "tap", "blue", 7, 15);
+INSERT INTO shoes VALUES (7, "crocs", "green", 5, 15);
+INSERT INTO shoes VALUES (8, "slipper", "red", 6, 10);
+INSERT INTO shoes VALUES (9, "boot", "red", 7, 5);
+INSERT INTO shoes VALUES (10, "flat", "yellow", 6, 15);
+INSERT INTO shoes VALUES (11, "jordan", "blue", 5, 5);
+INSERT INTO shoes VALUES (12, "chuck taylor", "blue", 6, 10);
+INSERT INTO shoes VALUES (13, "adida", "blue", 7, 10);
+INSERT INTO shoes VALUES (14, "puma", "tan", 5, 10);
+INSERT INTO shoes VALUES (15, "k_swiss", "black", 5, 5);
+
+--display the gross revenue for all available inventory
+SELECT SUM(price) FROM shoes;
+
+--what is the avg. price per shoe's in stock?
+SELECT AVG(price) 
+FROM shoes;
