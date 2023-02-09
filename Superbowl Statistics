@@ -69,13 +69,22 @@ INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,Stadium,Cit
 SELECT AVG(winner_pts) FROM superbowls;
 
 /*How many Superbowls have been held in Florida since the New Millenium?*/
-SELECT COUNT(*) FROM superbowls WHERE State = 'Florida' AND DATE > 'Jan 1 2000';
+SELECT COUNT(*) FROM superbowls WHERE State = 'Florida' AND SB >= 34;
 
 /*Which Superbowls were won by the Kansas City Chiefs?*/
 SELECT * FROM superbowls WHERE Winner = 'Kansas City Chiefs' GROUP BY SB;
 
 /*Has the Oakland Raiders ever lost the Superbowl at the Orange Bowl?*/
 SELECT COUNT(*) FROM superbowls WHERE loser = 'Oakland Raiders' AND Stadium = 'Orange Bowl';
+
+/*What Superbowl teams have scored more than 40 points in the big game?*/
+SELECT * FROM superbowls WHERE Winner_Pts > 40 ORDER BY Winner_Pts;
+
+/*Which teams from the AFC West Division have won a Superbowl?*/
+SELECT * FROM superbowls WHERE Winner IN ("Denver Broncos", "Kansas City Chiefs", "Oakland Raiders", "Los Angeles Chargers") AS AFCW_Wins GROUP BY Winner;
+
+/*How many times each?*/
+SELECT COUNT(AFCW_Wins) FROM superbowls GROUP BY Winner;
 
 /*Which team has won the most Superbowls?*/
 SELECT Winner FROM superbowls WHERE 'Winner' >= 4 
