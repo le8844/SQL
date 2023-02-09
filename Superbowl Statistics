@@ -1,3 +1,5 @@
+/* Put your data in here and query it! */
+
 CREATE TABLE superbowls(
   Date      TEXT PRIMARY KEY,
   SB         TEXT,
@@ -81,10 +83,7 @@ SELECT COUNT(*) FROM superbowls WHERE loser = 'Oakland Raiders' AND Stadium = 'O
 SELECT * FROM superbowls WHERE Winner_Pts > 40 ORDER BY Winner_Pts;
 
 /*Which teams from the AFC West Division have won a Superbowl?*/
-SELECT * FROM superbowls WHERE Winner IN ("Denver Broncos", "Kansas City Chiefs", "Oakland Raiders", "Los Angeles Chargers") AS AFCW_Wins GROUP BY Winner;
-
-/*How many times each?*/
-SELECT COUNT(AFCW_Wins) FROM superbowls GROUP BY Winner;
+SELECT * FROM superbowls WHERE Winner IN('Denver Broncos', 'Kansas City Chiefs', 'Oakland Raiders', 'Los Angeles Chargers') GROUP BY Winner;
 
 /*Which team has won the most Superbowls?*/
-SELECT Winner FROM superbowls WHERE 'Winner' >= 4 
+SELECT * FROM superbowls WHERE COUNT(Winner) >= 8;
